@@ -81,10 +81,11 @@ namespace Services
             {
                 var result = _DbContext.Area_Reparacions.Single(x =>
                  x.Id == model.Id);
+                    result.Nombre = model.Nombre;
+                    result.Descripcion = model.Descripcion;
+            
 
-                if (result == null)
-
-                _DbContext.Area_Reparacions.Update(model);
+                _DbContext.Area_Reparacions.Update(result);
                 _DbContext.SaveChangesAsync();
                 return true;
             }
